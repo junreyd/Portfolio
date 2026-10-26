@@ -1,0 +1,212 @@
+.editor-invitation-row {
+  padding: 0 9px 6px;
+  background: #182231;
+  border-bottom: 1px solid #283549;
+}
+.interactive-editor .window-bar {
+  border-bottom: 0;
+}
+.playground-invitation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font: 10px var(--font-mono);
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+.hero-code-result {
+  display: block;
+  min-height: 2.26em;
+  max-height: 3.4em;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+.playground-invitation:hover {
+  background: var(--surface-hover);
+}
+.editor-auto-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 8px var(--font-mono);
+  letter-spacing: 0.8px;
+}
+.editor-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.editor-controls select {
+  background: #121b29;
+  border: 1px solid #344256;
+  border-radius: 4px;
+  font: 9px var(--font-mono);
+  color: #d4ddeb;
+  padding: 4px 6px;
+}
+.editor-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid #344256;
+  border-radius: 4px;
+  min-height: 25px;
+  padding: 4px 7px;
+  font: 9px var(--font-mono);
+}
+.editor-auto-button {
+  background: #182231;
+  color: #b6cbe0;
+}
+.editor-run-button {
+  background: #60d4ed;
+  color: #07141b;
+}
+.editor-controls button:disabled {
+  opacity: 0.55;
+}
+.editor-controls button:hover:not(:disabled) {
+  border-color: #89ddeb;
+}
+.editor-input-area {
+  display: flex;
+  height: 264px;
+  padding-right: 13px;
+}
+.editor-line-numbers {
+  width: 44px;
+  flex-shrink: 0;
+  color: #8493a8;
+  text-align: center;
+}
+.editor-line-numbers span {
+  display: block;
+  height: 22px;
+}
+.editor-input-area textarea {
+  display: block;
+  background: transparent;
+  color: inherit;
+  caret-color: #8ae2ec;
+  font: inherit;
+  line-height: 22px;
+  white-space: pre;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  height: 264px;
+  resize: none;
+  border-radius: 2px;
+  overflow: auto;
+}
+.editor-input-area textarea:focus-visible {
+  outline-offset: 4px;
+}
+.editor-limits {
+  padding: 0 14px 9px;
+  min-height: 21px;
+  color: #99adc5;
+  font: 7px/1.7 var(--font-mono);
+  letter-spacing: 0.2px;
+}
+[data-theme='light'] .editor-controls select,
+[data-theme='light'] .editor-auto-button {
+  background: #fff;
+  color: #506078;
+  border-color: #cbd8e9;
+}
+[data-theme='light'] .editor-run-button {
+  background: #006e89;
+  color: #fff;
+  border-color: #006e89;
+}
+[data-theme='light'] .editor-limits {
+  color: #596b83;
+}
+[data-theme='light'] .editor-line-numbers {
+  color: #64748b;
+}
+[data-theme='light'] .editor-input-area textarea {
+  caret-color: #087b98;
+}
+.workflow-visual .node-api {
+  top: 478px;
+}
+.compiled-error {
+  margin-top: 10px;
+  color: #f3aaa8;
+  text-align: center;
+  font: 10px var(--font-mono);
+}
+[data-theme='light'] .compiled-error {
+  color: #a52e36;
+}
+[data-theme='light'] .editor-invitation-row {
+  background: #f1f5fb;
+  border-color: #dce5ef;
+}
+@media (max-width: 650px) {
+  .workflow-visual:not(:has(.editor-input-area)) .playground-invitation {
+    /* The decorative editor is scaled down; preserve a 44px tap target at its smallest scale. */
+    min-height: 76px;
+    font-size: 18px;
+  }
+  .workflow-visual:has(.editor-input-area) {
+    width: 100%;
+    height: 560px;
+    margin: 18px 0 0;
+    transform: none;
+  }
+  .workflow-visual:has(.editor-input-area) .editor-frame {
+    left: 0;
+    top: 70px;
+    width: 100%;
+    transform: none;
+  }
+  .workflow-visual:has(.editor-input-area) .playground-invitation {
+    font-size: 11px;
+    min-height: 32px;
+  }
+  .workflow-visual:has(.editor-input-area) .app-node {
+    visibility: hidden;
+  }
+  .workflow-visual:has(.editor-input-area) .visual-universe {
+    opacity: 0.35;
+  }
+  .workflow-visual:has(.editor-input-area) .visual-caption {
+    text-align: center;
+    font-size: 7px;
+  }
+  .editor-controls select {
+    min-height: 32px;
+    font-size: 10px;
+  }
+  .editor-controls button {
+    min-height: 32px;
+    min-width: 32px;
+    font-size: 10px;
+  }
+  .editor-input-area {
+    font-size: 10px;
+  }
+  .editor-input-area textarea {
+    /* Readable mobile input also prevents iOS from zooming the page on focus. */
+    font-size: 16px;
+  }
+  .editor-limits {
+    font-size: 7px;
+    letter-spacing: 0;
+  }
+}
+@media (max-width: 360px) {
+  .editor-input-area {
+    font-size: 9px;
+  }
+}

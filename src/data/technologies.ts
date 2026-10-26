@@ -1,0 +1,47 @@
+export interface Technology {
+  id: string
+  name: string
+  logo: string
+}
+
+export const technologies: Technology[] = [
+  { id: 'sharepoint', name: 'SharePoint Online', logo: 'sharepoint.svg' },
+  { id: 'spfx', name: 'SPFx', logo: 'sharepoint.svg' },
+  { id: 'microsoft365', name: 'Microsoft 365', logo: 'microsoft365.svg' },
+  { id: 'power-platform', name: 'Power Platform', logo: 'powerplatform.svg' },
+  { id: 'shopify', name: 'Shopify', logo: 'shopify.svg' },
+  { id: 'liquid', name: 'Shopify Liquid', logo: 'liquid.png' },
+  { id: 'php', name: 'PHP', logo: 'php.svg' },
+  { id: 'laravel', name: 'Laravel', logo: 'laravel.svg' },
+  { id: 'codeigniter', name: 'CodeIgniter', logo: 'codeigniter.svg' },
+  { id: 'powerapps', name: 'Power Apps', logo: 'powerapps.svg' },
+  { id: 'powerfx', name: 'Power Fx', logo: 'powerfx.png' },
+  { id: 'powerautomate', name: 'Power Automate', logo: 'powerautomate.svg' },
+  { id: 'dataverse', name: 'Dataverse', logo: 'dataverse.svg' },
+  { id: 'javascript', name: 'JavaScript', logo: 'javascript.svg' },
+  { id: 'typescript', name: 'TypeScript', logo: 'typescript.svg' },
+  { id: 'react', name: 'React.js', logo: 'react.svg' },
+  { id: 'html', name: 'HTML5', logo: 'html5.svg' },
+  { id: 'css', name: 'CSS3', logo: 'css3.svg' },
+  { id: 'sass', name: 'Sass', logo: 'sass.svg' },
+  { id: 'rest', name: 'REST API', logo: 'rest' },
+  { id: 'graph', name: 'Microsoft Graph', logo: 'graph.svg' },
+  { id: 'salesforce', name: 'Salesforce LWC', logo: 'salesforce.svg' },
+  { id: 'nodejs', name: 'Node.js', logo: 'nodejs.svg' },
+  { id: 'csharp', name: 'C#', logo: 'csharp.svg' },
+  { id: 'aspnet', name: 'ASP.NET', logo: 'dotnet.svg' },
+  { id: 'pnp', name: 'PnP PowerShell', logo: 'pnp.png' },
+  { id: 'xero', name: 'Xero', logo: 'xero.svg' },
+  { id: 'business-central', name: 'Business Central', logo: 'businesscentral.svg' },
+  { id: 'powerbi', name: 'Power BI', logo: 'powerbi.svg' },
+  { id: 'erpnext', name: 'ERPNext', logo: 'erpnext.svg' },
+  { id: 'frappe', name: 'Frappe HR', logo: 'frappehr.png' },
+  { id: 'vite', name: 'Vite', logo: 'vite.svg' },
+  { id: 'tailwind', name: 'Tailwind CSS', logo: 'tailwind.svg' },
+  { id: 'functions', name: 'Azure Functions', logo: 'functions.svg' },
+  { id: 'logicapps', name: 'Logic Apps', logo: 'logicapps.svg' },
+  { id: 'vue', name: 'Vue.js', logo: 'vue.svg' },
+  { id: 'angular', name: 'Angular', logo: 'angular.svg' },
+  { id: 'aibuilder', name: 'AI Builder', logo: 'aibuilder.svg' },
+  { id: 'agents', name: 'Power Virtual Agents', logo: 'copilotstudio.svg' },
+]

@@ -1,0 +1,59 @@
+.animated-result {
+  position: relative;
+  overflow: visible;
+  max-height: none;
+}
+.result-words {
+  display: block;
+  color: var(--accent);
+}
+.result-word {
+  display: inline-block;
+  max-width: 100%;
+  white-space: pre-wrap;
+}
+.result-glyph {
+  position: relative;
+  display: inline-block;
+}
+.result-letter {
+  display: inline-block;
+  font: inherit;
+  background: linear-gradient(120deg, var(--accent-strong), #669af5);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.animated-result:is([data-phase='erasing'], [data-phase='drawing'])
+  .result-vector-glyph
+  > .result-letter {
+  mask-image: var(--glyph-mask);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+.result-stroke-letter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+[data-theme='light'] .result-letter {
+  background-image: linear-gradient(120deg, #00748c, #325ec4);
+}
+.animated-result[data-phase='hidden'] .result-words {
+  visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animated-result .result-words {
+    visibility: visible !important;
+  }
+  .result-stroke-letter path {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+  .result-fallback {
+    clip-path: none !important;
+  }
+  .animated-result .result-letter {
+    mask-image: none !important;
+  }
+}

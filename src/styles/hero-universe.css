@@ -1,0 +1,196 @@
+.hero {
+  isolation: isolate;
+}
+.hero > .container {
+  position: relative;
+  z-index: 1;
+}
+.hero-universe {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  background: #080e1e;
+}
+.hero-nebula {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.72;
+  animation: nebula-journey 48s ease-in-out infinite alternate;
+}
+.hero-nebula-light {
+  position: absolute;
+  inset: -15%;
+  opacity: 0.38;
+  background: radial-gradient(ellipse at 58% 28%, #8361d657, transparent 42%);
+  animation: nebula-tide 32s ease-in-out infinite alternate;
+}
+.nebula-light-cyan {
+  background: radial-gradient(ellipse at 86% 68%, #229ac54d, transparent 38%);
+  animation-duration: 41s;
+  animation-direction: alternate-reverse;
+}
+.hero-starfield {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
+}
+.hero-universe-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      #0b1018ef 0%,
+      #0b1018cd 25%,
+      #0b101891 48%,
+      #0b101833 80%,
+      #0b10185c 100%
+    ),
+    linear-gradient(
+      0deg,
+      #0b1018 0%,
+      #0b1018b3 8%,
+      transparent 35%,
+      transparent 75%,
+      #0b1018b3 100%
+    );
+}
+.hero-universe[data-running='false'] .hero-nebula,
+.hero-universe[data-running='false'] .hero-nebula-light {
+  animation-play-state: paused;
+}
+@keyframes nebula-journey {
+  from {
+    transform: translate3d(-1%, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(1.5%, -1%, 0) scale(1.065);
+  }
+}
+@keyframes nebula-tide {
+  from {
+    transform: translate3d(-3%, 1%, 0) rotate(-4deg);
+    opacity: 0.25;
+  }
+  to {
+    transform: translate3d(3%, -2%, 0) rotate(4deg);
+    opacity: 0.48;
+  }
+}
+[data-theme='light'] .hero-universe {
+  background: linear-gradient(135deg, #f8fbff 0%, #f1f4ff 52%, #edf8fc 100%);
+}
+[data-theme='light'] .hero-nebula {
+  opacity: 0;
+}
+[data-theme='light'] .nebula-light-violet {
+  background:
+    radial-gradient(ellipse at 68% 30%, #9e80e66b, transparent 45%),
+    radial-gradient(ellipse at 42% 75%, #93adf43d, transparent 45%);
+}
+[data-theme='light'] .nebula-light-cyan {
+  background: radial-gradient(ellipse at 88% 62%, #6bc8e57a, transparent 45%);
+}
+[data-theme='light'] .hero-starfield {
+  opacity: 0.65;
+}
+[data-theme='light'] .hero-universe-shade {
+  background:
+    linear-gradient(90deg, #f6f8fbef 0%, #f6f8fbc9 30%, #f6f8fb26 65%, transparent 100%),
+    linear-gradient(0deg, #f6f8fb 0%, transparent 35%, transparent 85%, #f6f8fb66 100%);
+}
+[data-theme='light'] .code-window {
+  background: #ffffff;
+  border-color: #cbd8e9;
+  box-shadow:
+    0 18px 50px #39517a24,
+    0 2px 8px #39517a0a;
+}
+[data-theme='light'] .window-bar {
+  background: #f1f5fb;
+  border-color: #dce5ef;
+  color: #506078;
+}
+[data-theme='light'] .code-content {
+  color: #334155;
+}
+[data-theme='light'] .line-number {
+  color: #64748b;
+}
+[data-theme='light'] .code-purple {
+  color: #7540b8;
+}
+[data-theme='light'] .code-green {
+  color: #08705f;
+}
+[data-theme='light'] .code-blue {
+  color: #12658b;
+}
+[data-theme='light'] .code-gold {
+  color: #97600c;
+}
+[data-theme='light'] .code-cursor {
+  background: #087b98;
+}
+[data-theme='light'] .code-footer {
+  color: #52657d;
+  border-color: #dce5ef;
+  background: #f8fafc;
+}
+[data-theme='light'] .app-node,
+[data-theme='light'] .workflow-pill {
+  background: #ffffff;
+  border-color: #d3deec;
+  box-shadow: 0 8px 24px #45638c12;
+}
+[data-theme='light'] .orbit-track {
+  border-color: #83abc83d;
+  border-top-color: #508faf70;
+}
+[data-theme='light'] .orbit-plane-2 .orbit-track {
+  border-color: #ab94d340;
+  border-right-color: #9274c166;
+}
+[data-theme='light'] .orbit-plane-3 .orbit-track {
+  border-color: #71b9ad35;
+  border-bottom-color: #4caa9866;
+}
+[data-theme='light'] .universe-boundary {
+  border-color: #7b96b533;
+}
+[data-theme='light'] .universe-halo {
+  background: radial-gradient(circle, #88a8dd14 0%, #a3a1e309 40%, transparent 70%);
+}
+@media (max-width: 650px) {
+  .hero-nebula {
+    object-position: 62% center;
+  }
+  .hero-universe-shade {
+    background: linear-gradient(
+      180deg,
+      #0b1018e6 0%,
+      #0b1018d9 35%,
+      #0b101852 58%,
+      #0b101870 80%,
+      #0b1018 100%
+    );
+  }
+  [data-theme='light'] .hero-universe-shade {
+    background: linear-gradient(180deg, #f6f8fbde 0%, #f6f8fbad 35%, #f6f8fb26 65%, #f6f8fb 100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-nebula,
+  .hero-nebula-light {
+    animation: none;
+  }
+}

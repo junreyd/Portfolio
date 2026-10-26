@@ -1,0 +1,93 @@
+.technology-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  gap: 4px;
+  min-width: 0;
+  max-width: 720px;
+}
+.technology-carousel > button {
+  display: grid;
+  place-items: center;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  transition:
+    color 180ms,
+    background 180ms;
+}
+.technology-carousel > button:hover {
+  color: var(--accent-strong);
+  background: var(--surface-hover);
+}
+.technology-viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  border-radius: 3px;
+}
+.technology-viewport::-webkit-scrollbar {
+  display: none;
+}
+.technology-track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.technology-card {
+  display: flex;
+  align-items: center;
+  flex: 0 0 128px;
+  width: 128px;
+  min-height: 38px;
+  gap: 7px;
+  scroll-snap-align: start;
+}
+.technology-logos {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 2px;
+}
+.technology-logos img {
+  width: 18px;
+  height: 18px;
+  padding: 2px;
+  object-fit: contain;
+  border-radius: 3px;
+  background: #f6f8fc;
+  user-select: none;
+}
+.technology-name {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+@media (max-width: 650px) {
+  .hero-bottom .technology-carousel {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    max-width: none;
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .technology-carousel > button {
+    transition: none;
+  }
+}

@@ -1,0 +1,379 @@
+.project-carousel {
+  margin-top: 36px;
+  --project-gap: 24px;
+}
+.project-carousel-track {
+  display: flex;
+  gap: var(--project-gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-block: 8px 20px;
+}
+.project-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.project-slide {
+  flex: 0 0 calc((100% - 2 * var(--project-gap)) / 3);
+  min-width: 0;
+  display: flex;
+  scroll-snap-align: start;
+}
+.project-carousel .project-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.project-carousel .project-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.6;
+  padding: 18px 16px 30px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  text-align: left;
+  background: radial-gradient(ellipse at 90% 0%, #2c537363, transparent 75%), #111d2b;
+  cursor: zoom-in;
+}
+.project-screenshot-frame {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #ffffff24;
+  border-radius: 5px;
+  background: #e8edf2;
+  box-shadow: 0 10px 25px #0005;
+}
+.project-carousel .project-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.project-carousel .project-image:hover img {
+  transform: scale(1.035);
+}
+.project-image-jumex .project-screenshot-frame {
+  position: relative;
+}
+.project-carousel .project-image-jumex .project-screenshot-frame img {
+  position: absolute;
+  top: -6%;
+  left: -15%;
+  width: 116%;
+  max-width: none;
+  height: auto;
+  transform-origin: top right;
+}
+.project-mobile-preview {
+  position: absolute;
+  right: 25px;
+  bottom: 26px;
+  width: 23%;
+  aspect-ratio: 9 / 17;
+  padding: 3px;
+  overflow: hidden;
+  border: 1px solid #8d9aaa;
+  border-radius: 8px;
+  background: #17212e;
+  box-shadow: -8px 5px 22px #0006;
+}
+.project-carousel .project-mobile-preview img {
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: top;
+  transform: none;
+}
+.project-carousel .image-label {
+  inset: auto 16px 9px auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #bbd2e3;
+  font-size: 8px;
+}
+.project-carousel .project-body {
+  padding: 23px 22px 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.project-carousel .project-meta {
+  align-items: start;
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+.project-carousel .project-meta > span:first-child {
+  letter-spacing: 1px;
+}
+.project-carousel .project-status > span {
+  background: #63c5c6;
+}
+.project-carousel .project-body h3 {
+  font-size: 21px;
+  min-height: 59px;
+}
+.project-carousel .project-body > p {
+  min-height: 87px;
+}
+.project-carousel .project-body .badges {
+  min-height: 66px;
+  margin-top: 18px;
+  padding-bottom: 14px;
+}
+.project-carousel .project-bottom {
+  margin-top: auto;
+  gap: 6px;
+}
+.project-carousel .project-bottom button {
+  gap: 7px;
+}
+.project-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 12px;
+}
+.project-carousel-range {
+  font: 10px var(--font-mono);
+  color: var(--muted);
+  white-space: nowrap;
+  letter-spacing: 1px;
+}
+.project-carousel-range strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.project-carousel-pagination {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.project-carousel-pagination button {
+  width: 24px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.project-carousel-pagination button span {
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--border);
+  transition:
+    background 0.3s,
+    transform 0.3s;
+}
+.project-carousel-pagination button[aria-current] span {
+  background: var(--accent);
+  transform: scaleY(1.5);
+}
+.project-carousel-pagination button:hover span {
+  background: var(--muted);
+}
+.project-carousel-arrows {
+  display: flex;
+  gap: 9px;
+}
+.project-carousel-arrows .icon-button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+.project-carousel-arrows .icon-button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.project-dialog {
+  width: min(960px, calc(100% - 32px));
+}
+.project-architecture ol {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0;
+  margin-top: 14px;
+  list-style: none;
+  counter-reset: architecture;
+}
+.project-architecture li {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--badge-bg);
+  counter-increment: architecture;
+}
+.project-architecture h4 {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.project-architecture h4::before {
+  content: counter(architecture, decimal-leading-zero) ' / ';
+  color: var(--accent);
+  font: 10px var(--font-mono);
+}
+.project-gallery {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+.project-gallery-stage {
+  padding: 24px;
+  background: #142131;
+}
+.project-gallery .dialog-image {
+  display: block;
+  height: 370px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 4px;
+}
+.project-gallery.is-expanded .dialog-image {
+  height: auto;
+  max-height: none;
+}
+.project-gallery figcaption {
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.project-gallery figcaption button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  background: none;
+  border: 0;
+  color: var(--accent);
+  padding: 6px;
+  font-size: 11px;
+}
+.project-gallery-thumbnails {
+  display: flex;
+  gap: 10px;
+  padding: 0 24px 18px;
+  overflow: auto;
+}
+.project-gallery-thumbnails button {
+  position: relative;
+  flex: 0 0 92px;
+  padding: 3px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  opacity: 0.65;
+}
+.project-gallery-thumbnails button[aria-pressed='true'] {
+  border-color: var(--accent);
+  opacity: 1;
+}
+.project-gallery-thumbnails img {
+  width: 100%;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.project-gallery-thumbnails button span {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: #101923;
+  padding: 1px 4px;
+  color: white;
+  font: 9px var(--font-mono);
+  border-radius: 2px;
+}
+@media (min-width: 700px) and (max-width: 1023px) {
+  .project-slide {
+    flex-basis: calc((100% - var(--project-gap)) / 2);
+  }
+}
+@media (max-width: 699px) {
+  .project-architecture ol {
+    grid-template-columns: 1fr;
+  }
+  .project-carousel {
+    margin-top: 24px;
+    --project-gap: 18px;
+  }
+  .project-slide {
+    flex-basis: 100%;
+  }
+  .project-carousel .project-body h3 {
+    min-height: 0;
+  }
+  .project-carousel .project-body > p {
+    min-height: 0;
+  }
+  .project-carousel .project-body .badges {
+    min-height: 64px;
+  }
+  .project-carousel-controls {
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-top: 0;
+  }
+  .project-carousel-pagination {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 4px;
+  }
+  .project-carousel-pagination button {
+    flex: 1;
+    max-width: 30px;
+  }
+  .project-gallery-stage {
+    padding: 20px 12px 12px;
+  }
+  .project-gallery .dialog-image {
+    height: 240px;
+  }
+  .project-gallery.is-expanded .dialog-image {
+    height: auto;
+  }
+  .project-gallery figcaption {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .project-gallery-thumbnails {
+    padding-inline: 16px;
+  }
+  .project-dialog .dialog-body {
+    padding: 24px;
+  }
+  .project-dialog .dialog-body h2 {
+    font-size: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-carousel .project-image img,
+  .project-carousel-pagination button span {
+    transition: none;
+  }
+}

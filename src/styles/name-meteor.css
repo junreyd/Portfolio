@@ -1,0 +1,190 @@
+.meteor-name,
+.name-letter-anchor {
+  position: relative;
+  display: inline-block;
+}
+.meteor-name-letters {
+  white-space: nowrap;
+}
+.name-letter {
+  display: inline-block;
+  white-space: pre;
+  transform-origin: center bottom;
+  animation: name-impact-recover 14s calc(0.84s + var(--letter-delay)) 1;
+}
+.name-meteor-impact {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.name-meteor {
+  --meteor-distance: clamp(170px, 20vw, 250px);
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff, #d4f5ff 45%, #efb979);
+  box-shadow:
+    0 0 7px #92e8ffb0,
+    0 0 13px #e7b08360;
+  opacity: 0;
+  animation: name-meteor-fall 14s linear 1;
+}
+.name-meteor::before {
+  content: '';
+  position: absolute;
+  right: 2px;
+  top: 1px;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #77d6ec50 45%, #c2f1ff);
+  border-radius: 50%;
+  transform-origin: right center;
+  transform: rotate(19deg);
+}
+.name-impact-ring {
+  position: absolute;
+  left: -7px;
+  top: -7px;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: name-impact-ring 14s linear 1;
+}
+.name-impact-spark {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--accent-strong);
+  opacity: 0;
+  animation: name-impact-spark 14s ease-out 1;
+}
+.name-spark-0 {
+  --spark-x: -15px;
+  --spark-y: -13px;
+}
+.name-spark-1 {
+  --spark-x: 13px;
+  --spark-y: -17px;
+}
+.name-spark-2 {
+  --spark-x: 19px;
+  --spark-y: 6px;
+}
+.name-spark-3 {
+  --spark-x: -10px;
+  --spark-y: 15px;
+}
+.meteor-name:not([data-launch]) .name-letter,
+.meteor-name:not([data-launch]) .name-meteor,
+.meteor-name:not([data-launch]) .name-impact-ring,
+.meteor-name:not([data-launch]) .name-impact-spark {
+  animation-name: none;
+}
+.meteor-name .name-letter,
+.meteor-name .name-meteor,
+.meteor-name .name-impact-ring,
+.meteor-name .name-impact-spark {
+  animation-play-state: paused;
+}
+.meteor-name[data-animate='true'] .name-letter,
+.meteor-name[data-animate='true'] .name-meteor,
+.meteor-name[data-animate='true'] .name-impact-ring,
+.meteor-name[data-animate='true'] .name-impact-spark {
+  animation-play-state: running;
+}
+[data-theme='light'] .name-meteor {
+  background: radial-gradient(circle at 35% 35%, #fff, #56b5d4 50%, #647bb9);
+  box-shadow: 0 0 6px #227eac80;
+}
+[data-theme='light'] .name-meteor::before {
+  background: linear-gradient(90deg, transparent, #2b7da850 45%, #087da4);
+}
+@keyframes name-meteor-fall {
+  0% {
+    opacity: 0;
+    transform: translate(calc(-1 * var(--meteor-distance)), -74px) scale(0.65);
+  }
+  0.7% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  6.8%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0);
+  }
+}
+@keyframes name-impact-ring {
+  0%,
+  5.9% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  6.1% {
+    opacity: 0.7;
+    transform: scale(0.3);
+  }
+  10.5%,
+  100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+@keyframes name-impact-spark {
+  0%,
+  5.9% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  6.1% {
+    opacity: 0.85;
+    transform: translate(0, 0);
+  }
+  10%,
+  100% {
+    opacity: 0;
+    transform: translate(var(--spark-x), var(--spark-y));
+  }
+}
+@keyframes name-impact-recover {
+  0%,
+  7%,
+  100% {
+    transform: translateY(0) rotate(0);
+    color: inherit;
+    text-shadow: none;
+  }
+  1.1% {
+    transform: translateY(5px) rotate(9deg);
+    color: var(--accent-strong);
+    text-shadow: 0 0 9px var(--accent);
+  }
+  3.1% {
+    transform: translateY(-4px) rotate(-5deg);
+    color: var(--accent);
+    text-shadow: 0 0 5px #60d4ed50;
+  }
+  5% {
+    transform: translateY(1px) rotate(1deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .meteor-name .name-letter,
+  .meteor-name .name-meteor,
+  .meteor-name .name-impact-ring,
+  .meteor-name .name-impact-spark {
+    animation: none !important;
+  }
+}
