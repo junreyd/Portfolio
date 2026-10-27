@@ -58,10 +58,12 @@ JUMEX lists the owner-confirmed React/Vite/Material UI frontend, Node.js/Express
 
 ## Enable the CV download
 
-1. Add your PDF at `public/resume/Junrey_Ducay_CV.pdf`.
-2. Restart the dev server or rebuild the website.
+The supplied CV is available at `public/resume/Junrey_Ducay_CV.pdf`, and the hero's **Download CV** button is enabled. To update it:
 
-Vite checks for the file at startup/build time. The download becomes enabled automatically; the missing-file state has no download URL. The PDF is included in the static build. Do not commit confidential personal information you do not want publicly downloadable.
+1. Add your PDF at `public/resume/Junrey_Ducay_CV.pdf`.
+2. Rebuild and deploy the website to update the published download.
+
+The button links directly to the PDF, which is included in the static build.
 
 ## GitHub Pages
 

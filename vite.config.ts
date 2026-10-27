@@ -1,5 +1,3 @@
-import { existsSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
@@ -62,10 +60,5 @@ export default defineConfig(({ mode }) => {
         },
       },
     ],
-    define: {
-      __CV_AVAILABLE__: existsSync(
-        fileURLToPath(new URL('./public/resume/Junrey_Ducay_CV.pdf', import.meta.url)),
-      ),
-    },
   }
 })

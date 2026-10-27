@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict'
 import { spawn } from 'node:child_process'
-import { existsSync } from 'node:fs'
 import { mkdir } from 'node:fs/promises'
 import { setTimeout as delay } from 'node:timers/promises'
 import { chromium } from 'playwright'
@@ -94,10 +93,11 @@ try {
   await outputIs('Built to make work simpler.')
   assert.equal(await page.locator('main > section[id]').count(), 6)
   const cv = page.getByText('Download CV', { exact: false })
-  const cvAvailable = existsSync('public/resume/Junrey_Ducay_CV.pdf')
-  assert.equal(await cv.getAttribute('aria-disabled'), String(!cvAvailable))
-  if (cvAvailable) assert.match(await cv.getAttribute('href'), /resume\/Junrey_Ducay_CV\.pdf$/)
-  else assert.equal(await cv.getAttribute('href'), null)
+  assert.equal(await cv.getAttribute('aria-disabled'), null)
+  assert.match(await cv.getAttribute('href'), /resume\/Junrey_Ducay_CV\.pdf$/)
+  const [cvDownload] = await Promise.all([page.waitForEvent('download'), cv.click()])
+  assert.equal(await cvDownload.failure(), null)
+  assert.equal(cvDownload.suggestedFilename(), 'Junrey_Ducay_CV.pdf')
   assert.ok(
     !requests.some((request) => /runtimes\/python|sql-wasm|\/esm-/.test(request)),
     'Optional runtimes must load only on use',

@@ -1,6 +1,6 @@
 # Production review — 26 October 2026
 
-The portfolio is ready for public deployment based on the checks below. The CV is intentionally pending. This review updated local files; it did not commit, push, or publish the site.
+The portfolio is ready for public deployment based on the checks below. The supplied CV was added on 27 October 2026 and the download is enabled. This review updated local files; it did not commit, push, or publish the site.
 
 ## Fixes
 
@@ -35,4 +35,4 @@ The portfolio is ready for public deployment based on the checks below. The CV i
 
 The workflow determines the base path and public URL from GitHub Pages, including configured custom domains. See `README.md` for other static hosts and local validation commands.
 
-When the CV is ready, add `public/resume/Junrey_Ducay_CV.pdf` and rebuild. Until then, the download stays disabled and has no broken URL.
+The CV is included at `public/resume/Junrey_Ducay_CV.pdf`. Replacing that file and rebuilding updates the public download.

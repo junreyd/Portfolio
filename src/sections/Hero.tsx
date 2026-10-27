@@ -56,15 +56,12 @@ export function Hero() {
                 Contact me <MoveRight size={17} />
               </ButtonLink>
               <ButtonLink
-                href={__CV_AVAILABLE__ ? assetUrl('resume/Junrey_Ducay_CV.pdf') : undefined}
-                aria-disabled={!__CV_AVAILABLE__}
-                download={__CV_AVAILABLE__ ? 'Junrey_Ducay_CV.pdf' : undefined}
+                href={assetUrl('resume/Junrey_Ducay_CV.pdf')}
+                download="Junrey_Ducay_CV.pdf"
                 variant="text"
-                className={!__CV_AVAILABLE__ ? 'cv-disabled' : ''}
-                title={__CV_AVAILABLE__ ? 'Download professional CV' : 'CV will be available soon'}
+                title="Download professional CV"
               >
                 <Download size={16} /> Download CV
-                {!__CV_AVAILABLE__ && <span className="soon-label">soon</span>}
               </ButtonLink>
             </motion.div>
             <motion.div variants={reveal} className="hero-social">
